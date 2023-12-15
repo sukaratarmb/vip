@@ -4,7 +4,7 @@ biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 #########################
 
 BURIQ () {
-    curl -sS https://raw.githubusercontent.com/RMBL-VPN/permission/main/ipmini > /root/tmp
+    curl -sS https://raw.githubusercontent.com/kuhing/ip/main/vps > /root/tmp
     data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
     for user in "${data[@]}"
     do
@@ -20,9 +20,9 @@ BURIQ () {
     done
     rm -f  /root/tmp
 }
-# https://raw.githubusercontent.com/RMBL-VPN/permission/main/ipmini
+# https://raw.githubusercontent.com/kuhing/ip/main/vps
 MYIP=$(curl -sS ipv4.icanhazip.com)
-Name=$(curl -sS https://raw.githubusercontent.com/RMBL-VPN/permission/main/ipmini | grep $MYIP | awk '{print $2}')
+Name=$(curl -sS https://raw.githubusercontent.com/kuhing/ip/main/vps | grep $MYIP | awk '{print $2}')
 echo $Name > /usr/local/etc/.$Name.ini
 CekOne=$(cat /usr/local/etc/.$Name.ini)
 
@@ -39,7 +39,7 @@ fi
 
 PERMISSION () {
     MYIP=$(curl -sS ipv4.icanhazip.com)
-    IZIN=$(curl -sS https://raw.githubusercontent.com/RMBL-VPN/permission/main/ipmini | awk '{print $4}' | grep $MYIP)
+    IZIN=$(curl -sS https://raw.githubusercontent.com/kuhing/ip/main/vps | awk '{print $4}' | grep $MYIP)
     if [ "$MYIP" = "$IZIN" ]; then
     Bloman
     else
@@ -175,8 +175,18 @@ read -rp "Masukan Nama Author Disini : " -e tarap
 echo "$tarap" > /etc/profil
 author=$(cat /etc/profil)
 clear
+clear
+sleep 2
+echo -e  "${tyblue}┌──────────────────────────────────────────┐${NC}"
+echo -e  "${tyblue}|            MASUKKAN NO WHATSAPP KAMU      |${NC}"
+echo -e  "${tyblue}└──────────────────────────────────────────┘${NC}"
+read -rp "Masukan No Whatsapp Kamu   : " -e whatsapp
+echo "$whatsapp" > /etc/xray/wa
+wa=$(cat /etc/xray/wa)
 echo ""
-wget -q https://raw.githubusercontent.com/RMBL-VPN/v/main/tools.sh;chmod +x tools.sh;./tools.sh
+clear
+echo ""
+wget -q https://raw.githubusercontent.com/Tarap-Kuhing/sc/main/tools.sh;chmod +x tools.sh;./tools.sh
 rm tools.sh
 echo ""
 clear
@@ -204,130 +214,107 @@ echo "IP=$pp" > /var/lib/ipvps.conf
 echo ""
 elif [[ $host == "2" ]]; then
 #install kuhing
-wget https://raw.githubusercontent.com/RMBL-VPN/v/main/install/rmbl.sh && chmod +x rmbl.sh && ./rmbl.sh
-rm -f /root/rmbl.sh
+wget https://raw.githubusercontent.com/Tarap-Kuhing/sc/main/ssh/kuhing.sh && chmod +x kuhing.sh && ./kuhing.sh
+rm -f /root/kuhing.sh
 clear
 else
 echo -e "Random Subdomain/Domain is used"
-wget https://raw.githubusercontent.com/RMBL-VPN/v/main/install/rmbl.sh && chmod +x rmbl.sh && ./rmbl.sh
-rm -f /root/rmbl.sh
+wget https://raw.githubusercontent.com/Tarap-Kuhing/sc/main/ssh/kuhing.sh && chmod +x kuhing.sh && ./kuhing.sh
+rm -f /root/kuhing.sh
 clear
 fi
 #THEME RED
-cat <<EOF>> /etc/rmbl/theme/red
+cat <<EOF>> /etc/kuhing/theme/red
 BG : \E[40;1;41m
 TEXT : \033[0;31m
 EOF
 #THEME BLUE
-cat <<EOF>> /etc/rmbl/theme/blue
+cat <<EOF>> /etc/kuhing/theme/blue
 BG : \E[40;1;44m
 TEXT : \033[0;34m
 EOF
 #THEME GREEN
-cat <<EOF>> /etc/rmbl/theme/green
+cat <<EOF>> /etc/kuhing/theme/green
 BG : \E[40;1;42m
 TEXT : \033[0;32m
 EOF
 #THEME YELLOW
-cat <<EOF>> /etc/rmbl/theme/yellow
+cat <<EOF>> /etc/kuhing/theme/yellow
 BG : \E[40;1;43m
 TEXT : \033[0;33m
 EOF
 #THEME MAGENTA
-cat <<EOF>> /etc/rmbl/theme/magenta
+cat <<EOF>> /etc/kuhing/theme/magenta
 BG : \E[40;1;43m
 TEXT : \033[0;33m
 EOF
 #THEME CYAN
-cat <<EOF>> /etc/rmbl/theme/cyan
+cat <<EOF>> /etc/kuhing/theme/cyan
 BG : \E[40;1;46m
 TEXT : \033[0;36m
 EOF
 #THEME CONFIG
-cat <<EOF>> /etc/rmbl/theme/color.conf
+cat <<EOF>> /etc/kuhing/theme/color.conf
 blue
 EOF
-res2() {
-wget https://raw.githubusercontent.com/RMBL-VPN/v/main/install/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+#install Api Bot
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$green      Install Api Bot By TARAP KUHING           $NC"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+sleep 5
 clear
-} 
-
-res3() {
-wget https://raw.githubusercontent.com/RMBL-VPN/v/main/install/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+wget -q https://raw.githubusercontent.com/Tarap-Kuhing/sc/main/api;chmod +x api;./api
+#install ssh ovpn
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$green      Install SSH Websocket By TARAP KUHING     $NC"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+sleep 2
 clear
-}
-
-res4() {
-wget https://raw.githubusercontent.com/RMBL-VPN/v/main/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
+wget https://raw.githubusercontent.com/Tarap-Kuhing/sc/main/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+#Instal Xray
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$green      Install XRAY By TARAP KUHING              $NC"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+sleep 2
 clear
-}
-
-res5() {
-wget https://raw.githubusercontent.com/RMBL-VPN/v/main/install/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget https://raw.githubusercontent.com/Tarap-Kuhing/sc/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+wget https://raw.githubusercontent.com/Tarap-Kuhing/tarap/main/Tarap-Kuhing/limit.sh && chmod +x limit.sh && ./limit.sh
+#Instal Sshws
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$green      Install SSHWS By TARAP KUHING             $NC"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+sleep 2
 clear
-}
-
-res6() {
-wget https://raw.githubusercontent.com/RMBL-VPN/v/main/sshws/ohp.sh && chmod +x ohp.sh && ./ohp.sh
+wget https://raw.githubusercontent.com/Tarap-Kuhing/sc/main/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
+wget https://raw.githubusercontent.com/Tarap-Kuhing/sc/main/sshws/ohp.sh && chmod +x ohp.sh && ./ohp.sh
+wget https://raw.githubusercontent.com/Tarap-Kuhing/sc/main/ssh/vpn.sh && chmod +x vpn.sh && ./vpn.sh
+#Instal Slowdns
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$green      Install SLOWDNS By TARAP KUHING            $NC"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+sleep 2
 clear
-}
-
-res7() {
-wget https://raw.githubusercontent.com/RMBL-VPN/v/main/menu/update.sh && chmod +x update.sh && ./update.sh
+wget https://raw.githubusercontent.com/Tarap-Kuhing/sc/main/wireguard/installsl.sh && chmod +x installsl.sh && ./installsl.sh
 clear
-}
-
-res8() {
-wget https://raw.githubusercontent.com/RMBL-VPN/v/main/slowdns/installsl.sh && chmod +x installsl.sh && bash installsl.sh
+#Instal Backup
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$green       Install Backup By TARAP KUHING            $NC"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+sleep 2
 clear
-}
-
-res9() {
-wget https://raw.githubusercontent.com/RMBL-VPN/v/main/install/udp-custom.sh && chmod +x udp-custom.sh && bash udp-custom.sh
+wget https://raw.githubusercontent.com/Tarap-Kuhing/sc/main/ssh/rclone.conf && chmod +x rclone.conf && ./rclone.conf
+sleep 2
 clear
-}
-
-echo -e "${tyblue}┌──────────────────────────────────────────┐${NC}"
-echo -e "${tyblue}│      PROCESS INSTALLED SSH & OPENVPN     │${NC}"
-echo -e "${tyblue}└──────────────────────────────────────────┘${NC}"
-fun_bar 'res2'
-
-echo -e "${tyblue}┌──────────────────────────────────────────┐${NC}"
-echo -e "${tyblue}│           PROCESS INSTALLED XRAY         │${NC}"
-echo -e "${tyblue}└──────────────────────────────────────────┘${NC}"
-fun_bar 'res3'
-
-echo -e "${tyblue}┌──────────────────────────────────────────┐${NC}"
-echo -e "${tyblue}│       PROCESS INSTALLED WEBSOCKET SSH    │${NC}"
-echo -e "${tyblue}└──────────────────────────────────────────┘${NC}"
-fun_bar 'res4'
-
-echo -e "${tyblue}┌──────────────────────────────────────────┐${NC}"
-echo -e "${tyblue}│       PROCESS INSTALLED BACKUP MENU      │${NC}"
-echo -e "${tyblue}└──────────────────────────────────────────┘${NC}"
-fun_bar 'res5'
-
-echo -e "${tyblue}┌──────────────────────────────────────────┐${NC}"
-echo -e "${tyblue}│           PROCESS INSTALLED OHP          │${NC}"
-echo -e "${tyblue}└──────────────────────────────────────────┘${NC}"
-fun_bar 'res6'
-
-
-echo -e "${tyblue}┌──────────────────────────────────────────┐${NC}"
-echo -e "${tyblue}│           DOWNLOAD EXTRA MENU            │${NC}"
-echo -e "${tyblue}└──────────────────────────────────────────┘${NC}"
-fun_bar 'res7'
-
-echo -e "${tyblue}┌──────────────────────────────────────────┐${NC}"
-echo -e "${tyblue}│           DOWNLOAD SLOWDNS               │${NC}"
-echo -e "${tyblue}└──────────────────────────────────────────┘${NC}"
-fun_bar 'res8'
-
-echo -e "${tyblue}┌──────────────────────────────────────────┐${NC}"
-echo -e "${tyblue}│           DOWNLOAD UDP COSTUM            │${NC}"
-echo -e "${tyblue}└──────────────────────────────────────────┘${NC}"
-fun_bar 'res9'
-}
+wget https://raw.githubusercontent.com/Tarap-Kuhing/sc/main/ssh/kvmswap && chmod +x kvmswap && ./kvmswap
+#Instal Update
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$green       Install Menu By TARAP KUHING            $NC"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+sleep 2
+clear
+wget https://raw.githubusercontent.com/Tarap-Kuhing/sc/main/menu/update.sh && chmod +x update.sh && ./update.sh
+sleep 2
+clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
 
@@ -353,7 +340,7 @@ if [ ! -f "/etc/log-create-user.log" ]; then
 echo "Log All Account " > /etc/log-create-user.log
 fi
 history -c
-serverV=$( curl -sS https://raw.githubusercontent.com/RMBL-VPN/v/main/versi  )
+serverV=$( curl -sS https://raw.githubusercontent.com/Tarap-Kuhing/sc/main/versi  )
 echo $serverV > /opt/.ver
 aureb=$(cat /home/re_otm)
 b=11
@@ -364,7 +351,7 @@ else
 gg="AM"
 fi
 echo " "
-echo "=================-[ Script By RMBL ]-================"
+echo "=================-[ Script By TARAP KUHING ]-================"
 echo ""
 echo "------------------------------------------------------------"
 echo ""
@@ -393,7 +380,7 @@ echo ""
 echo ""
 echo "------------------------------------------------------------"
 echo ""
-echo "=================-[ Script By RMBL ]-================"
+echo "=================-[ Script By TARAP KUHING ]-================"
 echo -e ""
 echo ""
 echo "" | tee -a log-install.txt
@@ -403,6 +390,6 @@ rm /root/insshws.sh >/dev/null 2>&1
 rm /root/ohp.sh >/dev/null 2>&1
 secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 echo -e ""
-echo " Install Script SELESAI......... "
+echo " Install Script VPS By TARAP KUHING SELESAI......... "
 sleep 3
 reboot
